@@ -41,12 +41,12 @@ class AssignedTicketNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('You have been assigned a new ticket')
-                    ->greeting('Hi,')
-                    ->line('You have been assigned a new ticket: '.$this->ticket->title)
+                    ->subject('Te han asignado un nuevo ticket')
+                    ->greeting('Hola,')
+                    ->line('Te han asignado un nuevo ticket: '.$this->ticket->title)
                     ->action('View ticket', route('admin.tickets.show', $this->ticket->id))
-                    ->line('Thank you')
-                    ->line(config('app.name') . ' Team')
+                    ->line('Gracias')
+                    ->line(config('app.name'))
                     ->salutation(' ');
     }
 }

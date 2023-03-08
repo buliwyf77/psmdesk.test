@@ -42,14 +42,14 @@ class CommentEmailNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('New comment on ticket '.$this->comment->ticket->title)
-                    ->greeting('Hi,')
-                    ->line('New comment on ticket '.$this->comment->ticket->title.':')
+                    ->subject('Nuevo comentario en el ticket '.$this->comment->ticket->title)
+                    ->greeting('Hola,')
+                    ->line('Nuevo comentario en el ticket '.$this->comment->ticket->title.':')
                     ->line('')
                     ->line(Str::limit($this->comment->comment_text, 500))
-                    ->action('View full ticket', route(optional($notifiable)->id ? 'admin.tickets.show' : 'tickets.show', $this->comment->ticket->id))
-                    ->line('Thank you')
-                    ->line(config('app.name') . ' Team')
+                    ->action('Ver el ticket', route(optional($notifiable)->id ? 'admin.tickets.show' : 'tickets.show', $this->comment->ticket->id))
+                    ->line('Gracias')
+                    ->line(config('app.name'))
                     ->salutation(' ');
     }
 }

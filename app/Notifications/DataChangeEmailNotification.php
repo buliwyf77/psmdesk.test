@@ -32,14 +32,14 @@ class DataChangeEmailNotification extends Notification
     {
         return (new MailMessage)
             ->subject($this->data['action'])
-            ->greeting('Hi,')
+            ->greeting('Hola,')
             ->line($this->data['action'])
-            ->line("Customer: ".$this->ticket->author_name) 
-            ->line("Ticket name: ".$this->ticket->title)
-            ->line("Brief description: ".Str::limit($this->ticket->content, 200))
-            ->action('View full ticket', route('admin.tickets.show', $this->ticket->id))
-            ->line('Thank you')
-            ->line(config('app.name') . ' Team')
+            ->line("Cliente: ".$this->ticket->author_name) 
+            ->line("Ticket: ".$this->ticket->title)
+            ->line("Descripción: ".Str::limit($this->ticket->content, 200))
+            ->action('Ver ticket', route('admin.tickets.show', $this->ticket->id))
+            ->line('Gracias')
+            ->line(config('app.name'))
             ->salutation(' ');
     }
 }
